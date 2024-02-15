@@ -1,6 +1,6 @@
 with source as (
     select *
-    from {{ source('in.c-keboola-ex-storage-35723326', 'olist_order_items_dataset') }}
+    from {{ source('in.c-data_import', 'olist_order_items_dataset') }}
 ) ,
 renamed as (
     select
