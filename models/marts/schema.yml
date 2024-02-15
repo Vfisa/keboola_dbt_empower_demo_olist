@@ -1,0 +1,33 @@
+version: 2
+
+models:
+    - name: customers
+      description: "List of customers."
+      columns:
+          - name: customer_uiid
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+    - name: sellers
+      description: "List of sellers."
+      columns:
+          - name: seller_id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+    - name : orders
+      description : "List of orders."
+      columns : 
+          - name : order_id
+            description : "The primary key for this table"
+            tests : 
+                - unique
+                - not_null
+          - name : customer_uiid
+            description : "The foreign key link to customer table"
+            tests : 
+                - relationships:
+                    to: ref('customers')
+                    field: customer_uiid
